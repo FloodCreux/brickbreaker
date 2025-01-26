@@ -35,7 +35,10 @@ void draw_bricks(int bricksInRow, int numRows) {
 				 .height = BRICK_HEIGHT
 			};
 
-			DrawRectangleRec(*(Rectangle*)&bricks[i][j], RED);
+			Rectangle rect = *(Rectangle*)&bricks[i][j];
+
+			DrawRectangleRec(rect, RED);
+			DrawRectangleLinesEx(rect, 1, WHITE);
 		}
 	}
 }

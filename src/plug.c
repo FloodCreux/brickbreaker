@@ -51,23 +51,35 @@ void draw_bricks(int bricksInRow, int numRows) {
 	}
 }
 
-void draw_paddle() {
-	int width = GetScreenWidth();
-	int height = GetScreenHeight();
+void draw_paddle(Paddle* paddle) {
 
-	Rectangle paddle = {
-		.x = width/4 - 25,
-		.y = height - 50,
-		.width = PADDLE_WIDTH,
-		.height = PADDLE_HEIGHT,
-	};
-
-	DrawRectangleRec(paddle, WHITE);
+	DrawRectangle(
+		paddle->position.x, 
+		paddle->position.y, 
+		paddle->width, 
+		paddle->height, 
+		WHITE
+	);
 }
 
 
 static void render(void) {
-	draw_paddle();
+	int width = GetScreenWidth();
+	int height = GetScreenHeight();
+
+	Paddle paddle = {
+		.width = PADDLE_WIDTH,
+		.height = PADDLE_HEIGHT,
+
+		.position = {
+			.x = width/4 - 25,
+			.y = height - 50,
+		},
+
+		.velocity = {0}
+	};
+
+	draw_paddle(&paddle);
 	draw_bricks(BRICKS_IN_ROW, TOTAL_ROWS);
 }
 

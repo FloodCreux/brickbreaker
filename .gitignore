@@ -1,1 +1,6 @@
 build/
+*.dSYM/
+*.old
+raylib/
+brickbreaker
+nob

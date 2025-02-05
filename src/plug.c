@@ -20,6 +20,14 @@ typedef struct Brick {
 	float height;
 } Brick;
 
+typedef struct Paddle {
+	float width;
+	float height;
+
+	Vector2 position;
+	Vector2 velocity;
+} Paddle;
+
 void draw_bricks(int bricksInRow, int numRows) {
 	Brick bricks[numRows][bricksInRow];
 	
@@ -43,8 +51,7 @@ void draw_bricks(int bricksInRow, int numRows) {
 	}
 }
 
-
-static void render(void) {
+void draw_paddle() {
 	int width = GetScreenWidth();
 	int height = GetScreenHeight();
 
@@ -56,7 +63,11 @@ static void render(void) {
 	};
 
 	DrawRectangleRec(paddle, WHITE);
+}
 
+
+static void render(void) {
+	draw_paddle();
 	draw_bricks(BRICKS_IN_ROW, TOTAL_ROWS);
 }
 

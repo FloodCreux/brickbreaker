@@ -10,4 +10,4 @@ This will build and generate the MACOS executable of the game.
 sh build.sh
 ```
 
-Currently leveraging the [[https://github.com/tsoding/nob.h/tree/main|nob.h]] build system.
+Currently leveraging the[nob.h](https://github.com/tsoding/nob.h/tree/main) build system.
